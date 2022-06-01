@@ -1,11 +1,5 @@
 module.exports = {
-  root: true,
-  extends: ['next', 'prettier'],
-  settings: {
-    next: {
-      rootDir: ['apps/*/', 'packages/*/'],
-    },
-  },
+  extends: ['next', 'plugin:valtio/recommended', 'prettier'],
   rules: {
     // '@next/next/no-html-link-for-pages': 'off',
   },

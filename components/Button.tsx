@@ -1,11 +1,16 @@
 import { cva } from 'class-variance-authority'
 import Link, { LinkProps } from 'next/link'
-import { forwardRef, PropsWithChildren } from 'react'
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  forwardRef,
+  PropsWithChildren,
+} from 'react'
 import { state } from 'store/background'
 import { useSnapshot } from 'valtio'
 
 export const button = cva(
-  'inline-grid place-items-center px-3 py-2.5 font-plex font-medium text-sm cursor-pointer ring-1 shadow-elevate0 shadow-transparent bg-black ring-white/5 text-white transition-colors duration-300 hover:bg-transparent',
+  'inline-grid place-items-center px-3 py-2.5 font-plex font-medium border-none outline-none text-sm cursor-pointer ring-1 shadow-elevate1 shadow-transparent bg-black ring-white/5 text-white transition-colors duration-150 hover:bg-transparent',
   {
     variants: {
       theme: {
@@ -23,13 +28,30 @@ export const button = cva(
 )
 
 export const Button = forwardRef<
-  HTMLAnchorElement,
-  PropsWithChildren<{ className?: string }>
->(function Button({ children, className }, ref) {
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>(function Button({ children, className, ...props }, ref) {
   const { theme } = useSnapshot(state)
 
   return (
-    <a ref={ref} className={button({ theme, class: className })}>
+    <button
+      ref={ref}
+      className={button({ theme, class: className })}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+})
+
+export const AnchorButton = forwardRef<
+  HTMLAnchorElement,
+  AnchorHTMLAttributes<HTMLAnchorElement>
+>(function Button({ children, className, ...props }, ref) {
+  const { theme } = useSnapshot(state)
+
+  return (
+    <a ref={ref} className={button({ theme, class: className })} {...props}>
       {children}
     </a>
   )

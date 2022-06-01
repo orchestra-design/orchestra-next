@@ -1,8 +1,8 @@
-import { NextPageContext } from 'next'
-import type { AppProps } from 'next/app'
 import { Header } from 'components/Header'
 import { LANG } from 'lib/prismic/constants'
 import { getMetaProps, MetaProps } from 'lib/prismic/getMetaProps'
+import { NextPageContext } from 'next'
+import type { AppProps } from 'next/app'
 import '../styles/index.css'
 
 function MyApp({

@@ -26,13 +26,6 @@ function HomePage({
   return (
     <main className="pb-36">
       <Section height="default" theme="transparent" className="h-48" />
-      <Section height="fullscreen" className="h-[calc(100vh-12rem)]">
-        <div className="w-full grid gap-8 grid-cols-[1fr_86ch_1fr] -translate-y-28">
-          <p className="col-[2] font-bold text-heading5 max-w-prose font-plex">
-            {homepage?.description}
-          </p>
-        </div>
-      </Section>
       <Section height="fullscreen">
         <Projects projects={projects} />
       </Section>

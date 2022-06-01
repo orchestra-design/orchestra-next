@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply h-screen w-screen font-sans text-lg text-black;
+    @apply w-screen h-screen font-sans text-lg text-black transition-colors duration-500;
     height: -webkit-fill-available;
     -webkit-overflow-scrolling: touch;
 
@@ -15,5 +15,27 @@
 
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold font-plex;
+  }
+}
+
+@layer utilities {
+  .aspect-ratio-card {
+    padding-bottom: 62.5%;
+  }
+
+  @supports (aspect-ratio: 4 / 3) {
+    .aspect-ratio-card {
+      aspect-ratio: 16 / 10;
+      padding-bottom: 0;
+    }
   }
 }
